@@ -3,7 +3,10 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const sequelize = new Sequelize(
+let sequelize;
+
+if (process.env.NODE_ENV !== "test") {
+  sequelize = new Sequelize(
   process.env.DB_NAME || 'postgres',
   process.env.DB_USER || 'postgres',
   process.env.DB_PASSWORD || 'postgres',
@@ -12,7 +15,14 @@ const sequelize = new Sequelize(
     dialect: 'postgres',
     port: process.env.DB_PORT || 5432,
     logging: false, // eller true om du vill se SQL
-  }
-);
+  })
+} else {
+  sequelize = new Sequelize({
+    dialect: "sqlite",
+    storage: ":memory:",
+    logging: false, // Set to console.log to see SQL queries
+  });
+}
 
 module.exports = sequelize;
+
