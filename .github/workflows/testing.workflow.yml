@@ -1,4 +1,4 @@
-name: Run Backend Tests
+name: Run Tests
 
 on:
   push:
@@ -19,10 +19,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install backend dependencies
-        working-directory: backend
+      - name: Install dependencies
+        working-directory: src
         run: npm install
 
-      - name: Run backend tests
-        working-directory: backend
+      - name: Run tests
+        working-directory: src
         run: npm test
