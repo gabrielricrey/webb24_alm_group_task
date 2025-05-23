@@ -26,6 +26,6 @@ const User = sequelize.define("User", {
   },
 });
 
-User.hasMany()
+// User.hasMany()
 
 module.exports = User;
