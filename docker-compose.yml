@@ -12,8 +12,8 @@ services:
 
   app:
     build:
-      context: ..
-      dockerfile: docker/dockerfile
+      context: .
+      dockerfile: ./dockerfile
     environment:
       DB_HOST: db
       DB_USER: postgres
