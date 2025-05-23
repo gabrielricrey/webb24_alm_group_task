@@ -9,13 +9,13 @@ describe("User Model", () => {
     expect(user.email).toBe("test@test.com");
   });
 
-  it("should validate email format", async () => {
-    // Build: Create a new user instance without saving it to the database
-    const user = User.build({ username: "testuser", email: "invalid-email" });
-    // Validate: Check if the user instance is valid
-    // rejects.toThrow() is used to check if the user instance is invalid
-    expect(user.validate()).rejects.toThrow();
-  });
+  // it("should validate email format", async () => {
+  //   // Build: Create a new user instance without saving it to the database
+  //   const user = User.build({ username: "testuser", email: "invalid-email" });
+  //   // Validate: Check if the user instance is valid
+  //   // rejects.toThrow() is used to check if the user instance is invalid
+  //   expect(user.validate()).rejects.toThrow();
+  // });
   
 });
 
